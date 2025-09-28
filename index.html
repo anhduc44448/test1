@@ -4,20 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chess Pieces</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #container img {
+            width: 60px;
+            height: 60px;
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
+    <h1>Test hiển thị quân cờ</h1>
     <div id="container"></div>
 
     <script>
-        const piece = "wK"; // ví dụ: quân vua
-        const img = document.createElement("img");
-        const imgSrc = "static/images/" + piece + ".png";
+        // Danh sách quân cờ bạn có trong static/images/
+        const pieces = ["wK", "wQ", "wR", "wB", "wN", "wP",
+            "bK", "bQ", "bR", "bB", "bN", "bP"];
 
+        const container = document.getElementById("container");
 
-        img.src = imgSrc;
-        document.getElementById("container").appendChild(img);
+        pieces.forEach(piece => {
+            const img = document.createElement("img");
+            // Đường dẫn tương đối, KHÔNG có dấu "/" đầu tiên
+            img.src = "static/images/" + piece + ".png";
+            img.alt = piece;
+            container.appendChild(img);
+        });
     </script>
 </body>
 
