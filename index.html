@@ -25,16 +25,15 @@
     <div id="container"></div>
 
     <script>
-        // Danh sách quân cờ bạn có trong static/images/
-        const pieces = ["wK", "wQ", "wR", "wB", "wN", "wP",
-            "bK", "bQ", "bR", "bB", "bN", "bP"];
+        // Danh sách quân cờ (đặt tên file ảnh chữ thường)
+        const pieces = ["wk", "wq", "wr", "wb", "wn", "wp",
+            "bk", "bq", "br", "bb", "bn", "bp"];
 
         const container = document.getElementById("container");
 
         pieces.forEach(piece => {
             const img = document.createElement("img");
-            // Đường dẫn tương đối, KHÔNG có dấu "/" đầu tiên
-            img.src = "static/images/" + piece + ".png";
+            img.src = "./static/images/" + piece + ".png";
             img.alt = piece;
             container.appendChild(img);
         });
