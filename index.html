@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script>
+        const piece = "wK"; // ví dụ: quân vua
+        const img = document.createElement("img");
+        const imgSrc = `/static/images/${piece.toUpperCase()}.png`;
+        img.src = imgSrc;
+        document.getElementById("container").appendChild(img);
+    </script>
+</body>
+
+</html>
