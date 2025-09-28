@@ -4,41 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test hiển thị quân cờ</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            margin-top: 20px;
-        }
-
-        .pieces {
-            margin-top: 30px;
-        }
-
-        img {
-            width: 60px;
-            margin: 5px;
-        }
-    </style>
+    <title>Realtime Chess AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 </head>
 
 <body>
-    <img src="static/images/VuaTrang.png" alt="">
-    <img src="static/images/VuaDen.png" alt="">
-    <img src="static/images/XeTrang.png" alt="">
-    <img src="static/images/XeDen.png" alt="">
-    <img src="static/images/MaTrang.png" alt="">
-    <img src="static/images/MaDen.png" alt="">
-    <img src="static/images/TuongTrang.png" alt="">
-    <img src="static/images/TuongDen.png" alt="">
-    <img src="static/images/TotTrang.png" alt="">
-    <img src="static/images/TotDen.png" alt="">
-    <img src="static/images/HauDen.png" alt="">
-    <img src="static/images/HauTrang.png" alt="">
+    <div class="header">
+        <a href="#" onclick="showSection('home-section')">Trang Chủ</a>
+        <button onclick="showSection('guide-section')">Hướng Dẫn</button>
+        <button onclick="showSection('contact-section')">Liên Hệ</button>
+    </div>
+
+    <div class="content">
+        <!-- Trang chủ (J vừa màn hình, rộng ngang) -->
+        <div id="home-section" class="section">
+            <div class="home-hero">
+                <div class="home-text">
+                    <h1><i class="fas fa-chess-king"></i> Realtime Chess AI</h1>
+                    <p class="slogan">Cờ vua đỉnh cao với AI thời gian thực!</p>
+                    <button class="play-button" onclick="showSection('mode-section')">
+                        <i class="fas fa-play"></i> Bắt Đầu Ngay
+                    </button>
+                </div>
+                <div class="home-image">
+                    <img src="/static/images/chessboard-preview.png" alt="Chessboard Preview" class="chess-preview">
+                </div>
+            </div>
+            <div class="home-features">
+                <h2>Tính Năng Nổi Bật</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Đối Kháng Nhiều Người</h3>
+                        <p>Đấu với người chơi khắp thế giới.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI Siêu Trí Tuệ</h3>
+                        <p>Thử thách AI mạnh mẽ.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Thời Gian Thực</h3>
+                        <p>Trận đấu mượt mà.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hướng dẫn chơi -->
+        <div id="guide-section" class="section">
+            <h2>Hướng Dẫn Chơi</h2>
+            <p>1. Chọn chế độ: Người hoặc Máy.</p>
+            <p>2. Nhập Room ID để đấu với Người.</p>
+            <p>3. Chọn quân cờ và di chuyển.</p>
+            <p>4. Kết thúc khi chiếu hết hoặc hòa.</p>
+            <button onclick="showSection('home-section')">Quay Lại</button>
+        </div>
+
+        <!-- Liên hệ -->
+        <div id="contact-section" class="section">
+            <h2>Liên Hệ</h2>
+            <p>Email: support@chessai.com</p>
+            <p>Website: www.chessai.com</p>
+            <button onclick="showSection('home-section')">Quay Lại</button>
+        </div>
+
+        <!-- Section chọn mode -->
+        <div id="mode-section" class="section">
+            <h2>Chọn Chế Độ Chơi</h2>
+            <div class="mode-options">
+                <label onclick="selectMode('multi')">
+                    <i class="fas fa-users fa-3x"></i><br>
+                    Đánh với Người
+                </label>
+                <label onclick="selectMode('ai')">
+                    <i class="fas fa-robot fa-3x"></i><br>
+                    Đánh với Máy
+                </label>
+            </div>
+        </div>
+
+        <!-- Section nhập room cho multi -->
+        <div id="multi-room-section" class="section">
+            <h2>Đánh với Người</h2>
+            <input type="text" id="roomInput" placeholder="Nhập Room ID">
+            <button onclick="joinRoom()"><i class="fas fa-sign-in-alt"></i> Join Room</button>
+            <p id="status">Chưa tham gia phòng</p>
+        </div>
+
+        <!-- Section bàn cờ -->
+        <div id="game-section" class="section">
+            <div id="turn"></div>
+            <div id="chessboard"></div>
+            <button onclick="resetBoard()"><i class="fas fa-sync-alt"></i> Reset Room</button>
+        </div>
+    </div>
+
+    <script src="static/script.js"></script>
 </body>
 
 </html>
