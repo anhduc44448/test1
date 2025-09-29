@@ -54,56 +54,7 @@
             </div>
         </div>
 
-        <!-- Hướng dẫn chơi -->
-        <div id="guide-section" class="section">
-            <h2>Hướng Dẫn Chơi</h2>
-            <p>1. Chọn chế độ: Người hoặc Máy.</p>
-            <p>2. Nhập Room ID để đấu với Người.</p>
-            <p>3. Chọn quân cờ và di chuyển.</p>
-            <p>4. Kết thúc khi chiếu hết hoặc hòa.</p>
-            <button onclick="showSection('home-section')">Quay Lại</button>
-        </div>
 
-        <!-- Liên hệ -->
-        <div id="contact-section" class="section">
-            <h2>Liên Hệ</h2>
-            <p>Email: support@chessai.com</p>
-            <p>Website: www.chessai.com</p>
-            <button onclick="showSection('home-section')">Quay Lại</button>
-        </div>
-
-        <!-- Section chọn mode -->
-        <div id="mode-section" class="section">
-            <h2>Chọn Chế Độ Chơi</h2>
-            <div class="mode-options">
-                <label onclick="selectMode('multi')">
-                    <i class="fas fa-users fa-3x"></i><br>
-                    Đánh với Người
-                </label>
-                <label onclick="selectMode('ai')">
-                    <i class="fas fa-robot fa-3x"></i><br>
-                    Đánh với Máy
-                </label>
-            </div>
-        </div>
-
-        <!-- Section nhập room cho multi -->
-        <div id="multi-room-section" class="section">
-            <h2>Đánh với Người</h2>
-            <input type="text" id="roomInput" placeholder="Nhập Room ID">
-            <button onclick="joinRoom()"><i class="fas fa-sign-in-alt"></i> Join Room</button>
-            <p id="status">Chưa tham gia phòng</p>
-        </div>
-
-        <!-- Section bàn cờ -->
-        <div id="game-section" class="section">
-            <div id="turn"></div>
-            <div id="chessboard"></div>
-            <button onclick="resetBoard()"><i class="fas fa-sync-alt"></i> Reset Room</button>
-        </div>
-    </div>
-
-    <script src="static/script.js"></script>
 </body>
 
 </html>
